@@ -1,6 +1,6 @@
 <div>
   <%= link_to 'New', new_item_path %>
   <% @items.each do |item| %>
-    <p><%= item.name %> - <%= item.quantity %></p>
+    <h4><%= item.name %> - <%= item.quantity %></h4>
   <% end %>
 </div>
