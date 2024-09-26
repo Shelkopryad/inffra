@@ -4,6 +4,7 @@
     app_dir: /Users/artec3d/Documents/pet/docker/dockerized_app
     docker_compose_file: docker-compose.yml
     branch: main
+
   tasks:
     - name: Проверить наличие директории приложения
       file:
