@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    # necessary comment
     @items = Item.all
   end
 

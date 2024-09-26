@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   vars:
-    app_dir: /dockerized_app
+    app_dir: /Users/artec3d/Documents/pet/docker/infra/dockerized_app
     docker_compose_file: docker-compose.yml
     branch: main
   tasks:
