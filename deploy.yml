@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   vars:
-    app_dir: /Users/artec3d/Documents/pet/docker/infra/dockerized_app
+    app_dir: /Users/artec3d/Documents/pet/docker/dockerized_app
     docker_compose_file: docker-compose.yml
     branch: main
   tasks:
@@ -10,12 +10,12 @@
         path: "{{ app_dir }}"
         state: directory
 
-    - name: Обновить репозиторий до указанной ветки
-      git:
-        repo: 'https://github.com/Shelkopryad/inffra.git'
-        dest: "{{ app_dir }}"
-        version: "{{ branch }}"
-        force: yes
+#    - name: Обновить репозиторий до указанной ветки
+#      git:
+#        repo: 'https://github.com/Shelkopryad/inffra.git'
+#        dest: "{{ app_dir }}"
+#        version: "{{ branch }}"
+#        force: yes
 
     - name: Пересобрать Docker-образ
       command: docker-compose -f "{{ docker_compose_file }}" build
