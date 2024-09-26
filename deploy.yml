@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  vars:
+    app_dir: /dockerized_app
+    docker_compose_file: docker-compose.yml
+    branch: main
+  tasks:
+    - name: Проверить наличие директории приложения
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+
+    - name: Обновить репозиторий до указанной ветки
+      git:
+        repo: 'https://github.com/Shelkopryad/inffra.git'
+        dest: "{{ app_dir }}"
+        version: "{{ branch }}"
+        force: yes
+
+    - name: Пересобрать Docker-образ
+      command: docker-compose -f "{{ docker_compose_file }}" build
+      args:
+        chdir: "{{ app_dir }}"
+
+    - name: Перезапустить контейнеры
+      command: docker-compose -f "{{ docker_compose_file }}" up -d
+      args:
+        chdir: "{{ app_dir }}"
