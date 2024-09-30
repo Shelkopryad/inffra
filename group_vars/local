@@ -1,2 +1,3 @@
 app_dir: ~/Documents/pet/docker/dockerized_app
 docker_compose_file: docker-compose.yml
+branch: main

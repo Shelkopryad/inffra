@@ -8,6 +8,10 @@
         path: "{{ app_dir }}"
         state: directory
 
+    - name: Подтянуть изменения с гита
+      include_role:
+        name: git
+
     - name: Пересобрать Docker-образ
       command: docker-compose -f "{{ docker_compose_file }}" build
       args:

@@ -1,0 +1,9 @@
+---
+# tasks file for git
+  - name: Клонировать репозиторий по SSH
+    git:
+      repo: 'git@github.com:Shelkopryad/dockerized_app.git'
+      dest: "{{ app_dir }}"
+      version: "{{ branch }}"
+      key_file: "~/.ssh/id_rsa"
+      accept_hostkey: yes
