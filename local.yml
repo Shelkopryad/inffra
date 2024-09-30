@@ -12,12 +12,6 @@
       include_role:
         name: git
 
-    - name: Пересобрать Docker-образ
-      command: docker-compose -f "{{ docker_compose_file }}" build
-      args:
-        chdir: "{{ app_dir }}"
-
-    - name: Перезапустить контейнеры
-      command: docker-compose -f "{{ docker_compose_file }}" up -d
-      args:
-        chdir: "{{ app_dir }}"
+    - name: Пересобрать Docker-образ и запустить
+      include_role:
+        name: docker

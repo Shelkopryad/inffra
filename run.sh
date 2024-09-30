@@ -1,1 +1,1 @@
-ansible-playbook local.yml -e "branch=main"
+ansible-playbook local.yml -e "branch=main" -vvv

@@ -1,0 +1,11 @@
+---
+# tasks file for docker
+  - name: Пересобрать Docker-образ
+    command: docker-compose -f "{{ docker_compose_file }}" build
+    args:
+      chdir: "{{ app_dir }}"
+
+  - name: Перезапустить контейнеры
+    shell: docker-compose down && docker-compose -f "{{ docker_compose_file }}" up -d
+    args:
+      chdir: "{{ app_dir }}"
